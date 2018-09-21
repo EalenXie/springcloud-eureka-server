@@ -7,6 +7,7 @@ import java.util.Date;
 
 /**
  * Created by EalenXie on 2018/9/21 14:20.
+ * 要记录的Eureka Client信息实例(这里示例,按照自己需要自定义)
  */
 @Table
 @Entity
