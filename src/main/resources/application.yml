@@ -11,7 +11,7 @@ spring:
     password: yourpass
   jpa:
     hibernate:
-      ddl-auto: create                                                          # 请自行修改(若不想自己手动建表,可这么做,后续请自行修改)
+      ddl-auto: update                                                          # 若不想自己手动建表,可设置为,后续请自行修改
 ##  单实例配置
 eureka:
   instance:
@@ -46,9 +46,9 @@ eureka:
 ## 一旦进入该模式，Eureka Server就会保护服务注册表中的信息，不再删除服务注册表中的数据(也就是不会注销任何微服务)。当网络故障恢复后，该Eureka Server节点会自动退出自我保护模式。
 ## 自我保护模式是一种对网络异常的安全保护措施。使用自我保护模式，而已让Eureka集群更加的健壮、稳定。
 
-## 多实例配置(即高可用)
+## 多实例配置(即配置高可用)
 ## Eureka高可用实际上就是将自己作为服务向其他服务注册中心注册自已，这样就可以形成一组互相注册的服务注册中心，以实现服务清单的互相同步，达到高可用的效果。
-
+## 下面就是host指向host2,host2指向host1,互相注册
 #---
 #server:
 #  port: 8761
@@ -56,10 +56,8 @@ eureka:
 #  instance:
 #    hostname: localhost      # host1
 #  client:
-#     register-with-eureka: false
-#     fetch-registry: false
 #     service-url:
-#          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    # 指定服务注册中心实例1的位置
+#          defaultZone: http://${eureka.instance.hostname}:8762/eureka/    # 指定服务注册中心实例2的位置
 #spring:
 #  profiles: host1
 #
@@ -70,9 +68,7 @@ eureka:
 #  instance:
 #    hostname: localhost      # host2
 #  client:
-#     register-with-eureka: false
-#     fetch-registry: false
 #     service-url:
-#          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    # 指定服务注册中心实例2的位置
+#          defaultZone: http://${eureka.instance.hostname}:8761/eureka/    # 指定服务注册中心实例1的位置
 #spring:
 #  profiles: host2

@@ -10,6 +10,13 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 
+/**
+ * Created by EalenXie on 2018/9/20 14:46.
+ * EurekaServerEventListener 监听Eureka的事件行为
+ * 注 : EurekaInstanceRegisteredEvent,EurekaInstanceCanceledEvent,EurekaInstanceRenewedEvent
+ * 这三个事件会可能触发多次,条件是不相同的,一次event.replication=false,一次或多次为true
+ * replication属性的意思为是否复制,主注册地址为false,其它的为true
+ */
 @Component
 public class EurekaServerEventListener {
 
