@@ -11,7 +11,7 @@ spring:
     password: yourpass
   jpa:
     hibernate:
-      ddl-auto: update                                                          # 若不想自己手动建表,可设置为,后续请自行修改
+      ddl-auto: update                                                          # 若不想自己手动建表,可设置为create,后续请自行修改
 ##  单实例配置
 eureka:
   instance:
