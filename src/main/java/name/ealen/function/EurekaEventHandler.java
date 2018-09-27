@@ -103,6 +103,7 @@ public class EurekaEventHandler {
                     eurekaEntity.setLeaseRenewalInterval(leaseRenewInterval);
                     eurekaEntity.setLeaseExpirationDuration(leaseExpirationDuration);
                     eurekaEntity.setStatus(eurekaInstance.getInitialStatus().toString());
+                    eurekaEntity.setIpAddress(eurekaInstance.getIpAddress());
                     eurekaRepository.save(eurekaEntity);
                     log.info("Started Eureka Server Record Success ");
                 }
@@ -141,6 +142,7 @@ public class EurekaEventHandler {
             eurekaClientEntity.setStatusPageUrl(instanceInfo.getStatusPageUrl());
             eurekaClientEntity.setEurekaInstanceId(eurekaInstance.getInstanceId());
             eurekaClientEntity.setStatus(instanceInfo.getStatus().toString());
+            eurekaClientEntity.setIpAddress(instanceInfo.getIPAddr());
             eurekaClientRepository.save(eurekaClientEntity);
             log.info("Instance Register {} Record Success ", instanceInfo.getInstanceId());
         } catch (Exception e) {

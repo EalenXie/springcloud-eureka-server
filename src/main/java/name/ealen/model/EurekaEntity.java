@@ -22,6 +22,7 @@ public class EurekaEntity {
     private String defaultZone;                         //Eureka Server指定服务注册中心的位置
     private boolean enableSelfPreservation;             //Eureka Server是否开启自我保护模式
     private String hostname;                            //Eureka Server的hostname
+    private String ipAddress;                           //Eureka Server的ipAddress
     private String instanceId;                          //Eureka Server的InstanceId
     private Integer leaseRenewalInterval;               //Eureka Client向Eureka Server发送心跳周期(s)
     private Integer leaseExpirationDuration;            //Eureka Server接收实例的最后一次发出的心跳后,删除需要等待时间(s)
@@ -141,5 +142,13 @@ public class EurekaEntity {
 
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 }

@@ -20,6 +20,7 @@ public class EurekaClientEntity {
     private String applicationName;                     //Eureka Client的appName
     private String instanceId;                          //Eureka Client的instanceId
     private String hostname;                            //Eureka Client的hostname
+    private String ipAddress;                           //Eureka Client的ipAddress
     private String status;                              //Eureka Client在Eureka Server上面的状态
     private String homePageUrl;                         //Eureka Client的首页Url
     private String statusPageUrl;                       //Eureka Client的状态页Url
@@ -28,7 +29,7 @@ public class EurekaClientEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date registerTime;                          //Eureka Client注册到Eureka Server的时间
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date lastLeaveTime;                         //Eureka Client上次的下线时间
+    private Date lastLeaveTime;                         //Eureka Client上次的下线时间(默认为null,若该应用被Eureka Server剔除后更新这个时间)
     public Integer getId() {
         return id;
     }
@@ -123,5 +124,13 @@ public class EurekaClientEntity {
 
     public void setLastLeaveTime(Date lastLeaveTime) {
         this.lastLeaveTime = lastLeaveTime;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
+    }
+
+    public void setIpAddress(String ipAddress) {
+        this.ipAddress = ipAddress;
     }
 }

@@ -6,12 +6,12 @@ spring:
   application:
     name: springcloud-eureka-server
   datasource:
-    url: jdbc:mysql://localhost:3306/yourdatabase
-    username: yourname
-    password: yourpass
+    url: jdbc:mysql://localhost:3306/springcloud
+    username: root
+    password: admin
   jpa:
     hibernate:
-      ddl-auto: update                                                          # 若不想自己手动建表,可设置为,后续请自行修改
+      ddl-auto: update                                                          # 若不想自己手动建表,可设置为create,后续请自行修改
 ##  单实例配置
 eureka:
   instance:
