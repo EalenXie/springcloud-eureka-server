@@ -63,6 +63,7 @@ public class EurekaEventHandler {
     @Async
     public void recordEurekaStartUp(EurekaServerConfigBean eureka) {
         try {
+            long startUpTime = System.currentTimeMillis();
             StandardEnvironment environment = (StandardEnvironment) eureka.getPropertyResolver();
             String profile = getApplicationProfile(environment);
             MapPropertySource clientHostInfo = (MapPropertySource) environment.getPropertySources().get("springCloudClientHostInfo");
@@ -105,7 +106,7 @@ public class EurekaEventHandler {
                     eurekaEntity.setStatus(eurekaInstance.getInitialStatus().toString());
                     eurekaEntity.setIpAddress(eurekaInstance.getIpAddress());
                     eurekaRepository.save(eurekaEntity);
-                    log.info("Started Eureka Server Record Success ");
+                    log.info("Started Eureka Server Record Success , cost time {}ms ", System.currentTimeMillis() - startUpTime);
                 }
             }
         } catch (Exception e) {
