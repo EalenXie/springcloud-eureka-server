@@ -147,7 +147,7 @@ public class EurekaEventHandler {
             eurekaClientRepository.save(eurekaClientEntity);
             log.info("Instance Register {} Record Success ", instanceInfo.getInstanceId());
         } catch (Exception e) {
-            log.info("Instance Register {} Record failure : {}", instanceInfo.getInstanceId(), e.getMessage());
+            log.warn("Instance Register {} Record failure : {}", instanceInfo.getInstanceId(), e.getMessage());
         }
         System.out.println();
     }
@@ -167,7 +167,7 @@ public class EurekaEventHandler {
             eurekaClientRepository.save(eurekaClientEntity);
             log.info("Instance Cancel {} Record Success ", instanceId);
         } catch (Exception e) {
-            log.info("Instance Cancel {} Record failure : {}", instanceId, e.getMessage());
+            log.warn("Instance Cancel {} Record failure : {}", instanceId, e.getMessage());
         }
     }
 
